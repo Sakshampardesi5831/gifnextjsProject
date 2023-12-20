@@ -11,6 +11,7 @@ import {
 import { useAuth } from '@/firebase/auth';
 const Login = () => {
   const provider = new GoogleAuthProvider();
+  const router=useRouter();
   const [email,setEmail]=useState(null);
     const [password,setPassword]=useState(null);
     const {authUser,isLoading}=useAuth();
@@ -32,11 +33,12 @@ const Login = () => {
         try {
           const user=await signInWithEmailAndPassword(auth,email,password);
           console.log(user);
+          router.push("/homepage");
         } catch (error) {
           console.error(error);
         }
     } 
-    const router=useRouter();
+    
   //   useEffect(() => {
   //     if (!isLoading && authUser) {
   //         router.push("/");
@@ -49,14 +51,14 @@ const Login = () => {
           <div className='main_container_login-heading'>
               <h1>Login into your account</h1>
           </div>
-          <div className="main_container_login_GOOGLE_BUTTON">
+          {/* <div className="main_container_login_GOOGLE_BUTTON">
             <button onClick={signInGoogle}>
               <span>
                 <FcGoogle />
               </span>
               LOGIN WITH GOOGLE
             </button>
-          </div>
+          </div> */}
           <div className='main_container_login_form-container'>
               <form >
                  <label >Enter your Email</label>

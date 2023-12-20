@@ -28,6 +28,7 @@ const Register = () => {
       let updateName = await updateProfile(auth.currentUser, {
         displayName: username,
       });
+      router.push("/homepage");
     } catch (error) {
       console.log(error);
     }
@@ -50,7 +51,7 @@ const Register = () => {
           <div className="main_container_login-heading">
             <h1>Register your account</h1>
           </div>
-          <div className="main_container_login_GOOGLE_BUTTON">
+          {/* <div className="main_container_login_GOOGLE_BUTTON">
             <button onClick={signInGoogle}>
               {" "}
               <span>
@@ -58,7 +59,7 @@ const Register = () => {
               </span>{" "}
               LOGIN WITH GOOGLE
             </button>
-          </div>
+          </div> */}
           <div className="main_container_login_form-container">
             <form id="form-container">
               <label>Enter your fullName</label>
